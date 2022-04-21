@@ -4,6 +4,8 @@
  */
 package prog.roberto.ejerciciosb;
 
+import java.io.File;
+
 /**
  *
  * @author DAW
@@ -15,6 +17,21 @@ public class Ej5 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        char[] s;
+        s = new char[26];
+
+        File directorio;
+        try {
+            directorio = new File("C:\\Users\\DAW\\Desktop\\Documentos\\Diccionario");
+            directorio.mkdir();
+            for (int i = 0; i < 26; i++) {
+                s[i] = (char) ('A' + i);
+                
+            }
+
+        } catch (Exception e) {
+        }
+
     }
-    
+
 }
