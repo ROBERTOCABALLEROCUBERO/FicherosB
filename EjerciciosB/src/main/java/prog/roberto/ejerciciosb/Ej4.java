@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,13 +26,19 @@ public class Ej4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Scanner leer = new Scanner(System.in);
+        int nombres_mezclados;
+        String ruta;
         try {
+            System.out.println("Introduce el numero de nombres a generar");
+            nombres_mezclados = leer.nextInt();
+            System.out.println("Introduce el nombre del archivo");
+            ruta=leer.next();
             BufferedReader brnom = new BufferedReader(new FileReader("C:/Users/DAW/Desktop/Documentos/usa_nombres.txt"));
             BufferedReader brape = new BufferedReader(new FileReader("C:/Users/DAW/Desktop/Documentos/usa_apellidos.txt"));
-            PrintWriter pw = new PrintWriter(new FileWriter("C:/Users/DAW/Desktop/Documentos/nueva_prueba.txt"));
+            PrintWriter pw = new PrintWriter(new FileWriter("C:/Users/DAW/Desktop/Documentos/" + ruta));
             ArrayList<String> nombres = new ArrayList();
             ArrayList<String> apellidos = new ArrayList();
-            ArrayList<String> juntos = new ArrayList();
             String texto = null;
             while ((texto = brnom.readLine()) != null) {
                 nombres.add(texto);
@@ -40,14 +47,11 @@ public class Ej4 {
                 apellidos.add(texto);
             }
             
-            for (String unir : juntos) {
+            for (int i = 0; i < nombres_mezclados; i++) {
                 int numero1 = (int)(Math.random()*nombres.size());
                 int numero2 = (int)(Math.random()*apellidos.size());
                 String nombreyapellido = nombres.get(numero1).concat(" ").concat(apellidos.get(numero2));
-                juntos.add(nombreyapellido);
-                pw.println(unir);
-                
-               
+                pw.println(nombreyapellido);
             }
             brnom.close();
             brape.close();

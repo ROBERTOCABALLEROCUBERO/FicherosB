@@ -27,8 +27,8 @@ public class Ej3 {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-BufferedReader br = null;
-PrintWriter pw = null;
+        BufferedReader br = null;
+        PrintWriter pw = null;
         try {
             ArrayList<String> ordenar = new ArrayList();
             br = new BufferedReader(new FileReader("C:/Users/DAW/Desktop/Documentos/usa_personas.txt"));
@@ -53,7 +53,7 @@ PrintWriter pw = null;
         } finally {
             br.close();
             pw.close();
-            
+
         }
 
     }
